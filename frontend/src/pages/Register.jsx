@@ -6,12 +6,28 @@ import { useState } from "react";
 function Register() {
   const navigate = useNavigate();
 
-  // State 
+  // Form state
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [license, setLicense] = useState("");
   const [vehicle, setVehicle] = useState("");
   const [password, setPassword] = useState("");
+
+  // Error state
+  const [error, setError] = useState("");
+
+  // Validation function
+  const handleRegister = () => {
+    if (!name || !role || !license || !vehicle || !password) {
+      setError("All fields are required");
+      return;
+    }
+
+    setError(""); // clear error
+
+    // Later: send data to backend
+    navigate("/");
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -22,7 +38,13 @@ function Register() {
           Register 🚗
         </h2>
 
-        {/* Reusable Input */}
+        {/* Error Message */}
+        {error && (
+          <p className="text-red-500 text-sm mb-3 text-center">
+            {error}
+          </p>
+        )}
+
         <Input
           placeholder="Full Name"
           value={name}
@@ -62,7 +84,7 @@ function Register() {
         <Button
           text="Register"
           color="green"
-          onClick={() => navigate("/")}
+          onClick={handleRegister}
         />
 
         <p className="text-sm text-center mt-4">
