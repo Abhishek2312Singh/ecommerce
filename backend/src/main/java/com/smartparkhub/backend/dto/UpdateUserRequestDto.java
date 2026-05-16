@@ -4,8 +4,9 @@ import com.smartparkhub.backend.enums.Role;
 import com.smartparkhub.backend.enums.VehicleType;
 import lombok.Data;
 
+/** Used for PUT /admin/users/:id and PUT /superadmin/admins/:id — partial update (null = skip) */
 @Data
-public class CreateUserRequestDto {
+public class UpdateUserRequestDto {
     private String name;
     private String email;
     private Role role;
@@ -14,7 +15,6 @@ public class CreateUserRequestDto {
     private String collegeId;
     private String license;
     private String vehicle;
-    private String password;
     private VehicleType vehicleType;
     private String vehicleName;
     private String vehicleImage;

@@ -1,4 +1,8 @@
 package com.smartparkhub.backend.enums;
 
-public class VehicleType {
+public enum VehicleType {
+    CAR,
+    BIKE,
+    SCOOTER,
+    CYCLE
 }

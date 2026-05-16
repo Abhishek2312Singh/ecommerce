@@ -1,4 +1,10 @@
 package com.smartparkhub.backend.enums;
 
-public class Role {
+public enum Role {
+    SUPER_ADMIN,
+    ADMIN,
+    STUDENT,
+    FACULTY,
+    STAFF,
+    VISITOR
 }

@@ -1,4 +1,8 @@
 package com.smartparkhub.backend.enums;
 
-public class SlotType {
+public enum SlotType {
+    STUDENT,
+    FACULTY,
+    STAFF,
+    VISITOR
 }
