@@ -95,7 +95,7 @@ public class BackendApplication {
 					"UP14 EF 9012"
 			));
 
-			System.out.println("[SmartParkHub] ✅ Default accounts created:");
+			System.out.println("[SmartParkHub] Default accounts created:");
 			System.out.println("  SUPER_ADMIN : superadmin@smartparkhub.com / SuperAdmin@123");
 			System.out.println("  ADMIN       : admin@smartparkhub.com       / Admin@123");
 			System.out.println("  STUDENT     : student@smartparkhub.com     / Student@123");

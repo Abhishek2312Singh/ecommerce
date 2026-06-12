@@ -25,7 +25,9 @@ public class AdminController {
     public ResponseEntity<User> createUser(@RequestBody CreateUserRequestDto dto) {
         User user = new User();
         user.setName(dto.getName());
+        user.setFatherName(dto.getFatherName());
         user.setEmail(dto.getEmail());
+        user.setMobileNo(dto.getMobileNo());
         user.setRole(dto.getRole() != null ? dto.getRole() : Role.STUDENT);
         user.setCampus(dto.getCampus());
         user.setBatch(dto.getBatch());
@@ -35,6 +37,8 @@ public class AdminController {
         user.setPassword(dto.getPassword());
         user.setVehicleType(dto.getVehicleType());
         user.setVehicleName(dto.getVehicleName());
+        user.setVehicleColor(dto.getVehicleColor());
+        user.setVehicleModel(dto.getVehicleModel());
         user.setVehicleImage(dto.getVehicleImage());
         userRepo.save(user);
         return ResponseEntity.ok(user);
@@ -72,17 +76,21 @@ public class AdminController {
         Optional<User> opt = userRepo.findById(id);
         if (opt.isEmpty()) return ResponseEntity.notFound().build();
         User user = opt.get();
-        if (dto.getName()        != null) user.setName(dto.getName());
-        if (dto.getEmail()       != null) user.setEmail(dto.getEmail());
-        if (dto.getRole()        != null) user.setRole(dto.getRole());
-        if (dto.getCampus()      != null) user.setCampus(dto.getCampus());
-        if (dto.getBatch()       != null) user.setBatch(dto.getBatch());
-        if (dto.getCollegeId()   != null) user.setCollegeId(dto.getCollegeId());
-        if (dto.getLicense()     != null) user.setLicense(dto.getLicense());
-        if (dto.getVehicle()     != null) user.setVehicle(dto.getVehicle());
-        if (dto.getVehicleType() != null) user.setVehicleType(dto.getVehicleType());
-        if (dto.getVehicleName() != null) user.setVehicleName(dto.getVehicleName());
-        if (dto.getVehicleImage()!= null) user.setVehicleImage(dto.getVehicleImage());
+        if (dto.getName()         != null) user.setName(dto.getName());
+        if (dto.getFatherName()   != null) user.setFatherName(dto.getFatherName());
+        if (dto.getEmail()        != null) user.setEmail(dto.getEmail());
+        if (dto.getMobileNo()     != null) user.setMobileNo(dto.getMobileNo());
+        if (dto.getRole()         != null) user.setRole(dto.getRole());
+        if (dto.getCampus()       != null) user.setCampus(dto.getCampus());
+        if (dto.getBatch()        != null) user.setBatch(dto.getBatch());
+        if (dto.getCollegeId()    != null) user.setCollegeId(dto.getCollegeId());
+        if (dto.getLicense()      != null) user.setLicense(dto.getLicense());
+        if (dto.getVehicle()      != null) user.setVehicle(dto.getVehicle());
+        if (dto.getVehicleType()  != null) user.setVehicleType(dto.getVehicleType());
+        if (dto.getVehicleName()  != null) user.setVehicleName(dto.getVehicleName());
+        if (dto.getVehicleColor() != null) user.setVehicleColor(dto.getVehicleColor());
+        if (dto.getVehicleModel() != null) user.setVehicleModel(dto.getVehicleModel());
+        if (dto.getVehicleImage() != null) user.setVehicleImage(dto.getVehicleImage());
         userRepo.save(user);
         return ResponseEntity.ok(user);
     }

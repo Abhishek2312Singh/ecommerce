@@ -13,7 +13,9 @@ public class User {
     private Long id;
 
     private String name;
+    private String fatherName;
     private String email;
+    private String mobileNo;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -29,6 +31,8 @@ public class User {
     private VehicleType vehicleType;
 
     private String vehicleName;
+    private String vehicleColor;
+    private String vehicleModel;
     private String vehicleImage;
 
     /**

@@ -8,7 +8,9 @@ import lombok.Data;
 @Data
 public class UpdateUserRequestDto {
     private String name;
+    private String fatherName;
     private String email;
+    private String mobileNo;
     private Role role;
     private String campus;
     private String batch;
@@ -17,5 +19,7 @@ public class UpdateUserRequestDto {
     private String vehicle;
     private VehicleType vehicleType;
     private String vehicleName;
+    private String vehicleColor;
+    private String vehicleModel;
     private String vehicleImage;
 }

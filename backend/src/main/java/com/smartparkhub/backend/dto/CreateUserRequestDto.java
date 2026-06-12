@@ -7,7 +7,9 @@ import lombok.Data;
 @Data
 public class CreateUserRequestDto {
     private String name;
+    private String fatherName;
     private String email;
+    private String mobileNo;
     private Role role;
     private String campus;
     private String batch;
@@ -17,5 +19,7 @@ public class CreateUserRequestDto {
     private String password;
     private VehicleType vehicleType;
     private String vehicleName;
+    private String vehicleColor;
+    private String vehicleModel;
     private String vehicleImage;
 }

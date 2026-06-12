@@ -4,6 +4,7 @@ import com.smartparkhub.backend.entity.ParkingRecord;
 import com.smartparkhub.backend.entity.User;
 import com.smartparkhub.backend.repository.ParkingRecordRepo;
 import com.smartparkhub.backend.repository.UserRepo;
+import com.smartparkhub.backend.service.ParkingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class ParkingController {
 
     @Autowired private ParkingRecordRepo parkingRecordRepo;
     @Autowired private UserRepo userRepo;
-    @Autowired private UserController userController;
+    @Autowired private ParkingService parkingService;
 
     /** GET /parking/user/{userId} - current and past parking sessions for one user. */
     @GetMapping("/user/{userId}")
@@ -27,7 +28,7 @@ public class ParkingController {
         if (!canAccessUser(userId, auth)) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
-        userRepo.findById(userId).ifPresent(userController::ensureActiveParkingRecord);
+        userRepo.findById(userId).ifPresent(parkingService::ensureActiveParkingRecord);
         return ResponseEntity.ok(parkingRecordRepo.findByUserIdOrderByEntryTimeDesc(userId));
     }
 
@@ -35,7 +36,7 @@ public class ParkingController {
     @GetMapping("/active")
     public ResponseEntity<List<ParkingRecord>> getActiveParking(Authentication auth) {
         String campus = campusScope(auth);
-        userRepo.findAll().forEach(userController::ensureActiveParkingRecord);
+        userRepo.findAll().forEach(parkingService::ensureActiveParkingRecord);
         List<ParkingRecord> active = parkingRecordRepo.findByExitTimeIsNullOrderByEntryTimeDesc();
         if (campus == null) {
             return ResponseEntity.ok(active);
@@ -51,7 +52,7 @@ public class ParkingController {
                                                               Authentication auth) {
         int safeLimit = Math.max(1, Math.min(limit, 50));
         String campus = campusScope(auth);
-        userRepo.findAll().forEach(userController::ensureActiveParkingRecord);
+        userRepo.findAll().forEach(parkingService::ensureActiveParkingRecord);
         List<ParkingRecord> logs = parkingRecordRepo.findTop50ByOrderByEntryTimeDesc();
         if (campus != null) {
             logs = logs.stream()
