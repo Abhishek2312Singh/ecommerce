@@ -12,13 +12,14 @@ public class Order {
     private Long id;
 
     private String orderId;
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<OrderItem> orderItems;
 
     private String payment;
     private Boolean isDelivered;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     private Double totalAmt;

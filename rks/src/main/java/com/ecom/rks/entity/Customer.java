@@ -11,9 +11,9 @@ public class Customer extends User{
     private Long id;
 
     private String customerId;
-    @OneToMany
-    @JoinColumn(name = "customer")
+    @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
+    @OneToMany(mappedBy = "customer")
     private List<Review> reviews;
 }

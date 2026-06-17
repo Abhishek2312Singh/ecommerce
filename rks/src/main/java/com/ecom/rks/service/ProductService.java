@@ -4,6 +4,7 @@ import com.ecom.rks.dto.requestDto.ProductRequest;
 import com.ecom.rks.dto.responseDto.ProductResponse;
 import com.ecom.rks.entity.Product;
 import com.ecom.rks.repository.ProductRepo;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,8 @@ import java.util.List;
 
 @Service
 public class ProductService {
+    @Autowired
+    private ModelMapper modelMapper;
     @Autowired
     private ProductRepo productRepo;
     public String addProduct(ProductRequest productRequest){
@@ -40,6 +43,14 @@ public class ProductService {
     public List<ProductResponse> getAllProduct(){
         List<Product> products = productRepo.findAll();
         List<ProductResponse> productResponses = new ArrayList<>();
-        for(Product)
+        for(Product product : products){
+            ProductResponse productReposne = modelMapper.map(product, ProductResponse.class);
+            productResponses.add(productReposne);
+        }
+        return productResponses;
+    }
+    public ProductResponse getProductById(Long id){
+        Product product = productRepo.findById(id).orElseThrow(()->new RuntimeException("Product not found!"));
+        return modelMapper.map(product, ProductResponse.class);
     }
 }
