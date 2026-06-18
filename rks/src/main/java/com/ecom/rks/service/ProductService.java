@@ -44,8 +44,8 @@ public class ProductService {
         List<Product> products = productRepo.findAll();
         List<ProductResponse> productResponses = new ArrayList<>();
         for(Product product : products){
-            ProductResponse productReposne = modelMapper.map(product, ProductResponse.class);
-            productResponses.add(productReposne);
+            ProductResponse productResponse = modelMapper.map(product, ProductResponse.class);
+            productResponses.add(productResponse);
         }
         return productResponses;
     }
