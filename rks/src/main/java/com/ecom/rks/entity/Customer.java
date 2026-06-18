@@ -12,7 +12,7 @@ public class Customer extends User{
 
     private String customerId;
     @OneToMany(mappedBy = "customer")
-    private List<Order> orders;
+    private List<Orders> orders;
 
     @OneToMany(mappedBy = "customer")
     private List<Review> reviews;

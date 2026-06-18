@@ -2,8 +2,6 @@ package com.ecom.rks.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 public class OrderItem {
     @Id
@@ -11,7 +9,7 @@ public class OrderItem {
     private Long id;
 
     @ManyToOne
-    private Order order;
+    private Orders orders;
 
     @ManyToOne
     private Product product;
@@ -36,12 +34,12 @@ public class OrderItem {
         this.id = id;
     }
 
-    public Order getOrder() {
-        return order;
+    public Orders getOrder() {
+        return orders;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrder(Orders orders) {
+        this.orders = orders;
     }
 
     public Product getProduct() {

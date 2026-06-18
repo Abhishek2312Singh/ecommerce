@@ -35,17 +35,17 @@ public class OrderService {
         this.cartItemRepo = cartItemRepo;
     }
     @Transactional
-    public Order createOrder(Long customerId){
+    public Orders createOrder(Long customerId){
         Customer customer = customerRepo.findById(customerId).orElseThrow(()->new RuntimeException("Customer Not Found!"));
         Cart cart = cartRepo.findByCustomer(customer).orElseThrow(()->new RuntimeException("Cart Not Found!"));
         if(cart.getCartItemList().isEmpty()){
             throw new RuntimeException("Cart is empty!");
         }
-        Order order = new Order();
-        order.setOrderId(UUID.randomUUID().toString());
-        order.setCustomer(customer);
-        order.setDelivered(false);
-        order = orderRepo.save(order);
+        Orders orders = new Orders();
+        orders.setOrderId(UUID.randomUUID().toString());
+        orders.setCustomer(customer);
+        orders.setDelivered(false);
+        orders = orderRepo.save(orders);
         Double totalAmt = 0.0;
 
         List<OrderItem> orderItemList = new ArrayList<>();
@@ -55,7 +55,7 @@ public class OrderService {
             if (product.getProdQuantity()<cartItem.getQuantity()){
                 throw new RuntimeException("Product Out Of Stock!");
             }
-            orderItem.setOrder(order);
+            orderItem.setOrder(orders);
             orderItem.setProduct(product);
             orderItem.setQuantity(cartItem.getQuantity());
             orderItem.setProdPrice(cartItem.getPriceAtAddition());
@@ -68,15 +68,15 @@ public class OrderService {
             orderItemList.add(orderItem);
         }
         orderItemRepo.saveAll(orderItemList);
-        order.setOrderItems(orderItemList);
-        order.setOrderDate(LocalDateTime.now());
-        order = orderRepo.save(order);
+        orders.setOrderItems(orderItemList);
+        orders.setOrderDate(LocalDateTime.now());
+        orders = orderRepo.save(orders);
         cartItemRepo.deleteAll(cart.getCartItemList());
         cart.getCartItemList().clear();
         cartRepo.save(cart);
-        return order;
+        return orders;
     }
-    public Order getOrderById(Long orderId){
+    public Orders getOrderById(Long orderId){
         return orderRepo.findById(orderId).orElseThrow(()->new RuntimeException("Order Not Found!"));
     }
 }

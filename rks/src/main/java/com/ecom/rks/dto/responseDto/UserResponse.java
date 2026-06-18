@@ -1,27 +1,14 @@
-package com.ecom.rks.entity;
+package com.ecom.rks.dto.responseDto;
 
-import jakarta.persistence.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import com.ecom.rks.entity.Role;
 
-import java.util.Collection;
-import java.util.List;
-
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class User implements UserDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class UserResponse {
     private Long id;
     private String fullName;
     private String email;
     private String mobile;
-
-    @OneToOne
-    @JoinColumn(name = "role_id")
     private Role role;
     private String address;
-    private String password;
 
     public Long getId() {
         return id;
@@ -69,23 +56,5 @@ public class User implements UserDetails {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return this.email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }

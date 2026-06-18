@@ -6,13 +6,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-public class Order {
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String orderId;
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<OrderItem> orderItems;
 
     private String payment;
