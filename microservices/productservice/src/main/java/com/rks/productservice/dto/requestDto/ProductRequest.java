@@ -1,4 +1,4 @@
-package com.ecom.rks.dto.requestDto;
+package com.rks.productservice.dto.requestDto;
 
 public class ProductRequest {
     private Long id;

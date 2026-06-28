@@ -1,4 +1,4 @@
-package com.ecom.rks.dto.responseDto;
+package com.rks.productservice.dto.responseDto;
 
 public class ProductResponse {
     private Long id;

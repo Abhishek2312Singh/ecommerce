@@ -1,4 +1,4 @@
-package com.ecom.rks.entity;
+package com.rks.productservice.entity;
 
 import jakarta.persistence.*;
 
@@ -14,8 +14,6 @@ public class Product {
     private Long prodQuantity;
     private Double prodPrice;
     private String prodDesc;
-    @OneToMany(mappedBy = "product")
-    private List<Review> reviews;
 
     public Long getId() {
         return id;
@@ -63,13 +61,5 @@ public class Product {
 
     public void setProdDesc(String prodDesc) {
         this.prodDesc = prodDesc;
-    }
-
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Review> reviews) {
-        this.reviews = reviews;
     }
 }
