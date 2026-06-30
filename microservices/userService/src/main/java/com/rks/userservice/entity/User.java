@@ -1,4 +1,4 @@
-package com.ecom.rks.entity;
+package com.rks.userservice.entity;
 
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;

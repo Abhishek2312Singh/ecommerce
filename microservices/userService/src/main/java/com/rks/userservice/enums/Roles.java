@@ -1,4 +1,4 @@
-package com.ecom.rks.enums;
+package com.rks.userservice.enums;
 
 public enum Roles {
     ROLE_ADMIN,

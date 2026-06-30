@@ -1,6 +1,6 @@
-package com.ecom.rks.utils;
+package com.rks.userservice.utils;
 
-import com.ecom.rks.dto.responseDto.UserResponse;
+import com.rks.userservice.dto.responseDto.UserResponse;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;

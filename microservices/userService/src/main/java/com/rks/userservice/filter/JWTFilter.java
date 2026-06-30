@@ -1,12 +1,12 @@
-package com.ecom.rks.filter;
+package com.rks.userservice.filter;
 
-import com.ecom.rks.repository.UserRepo;
-import com.ecom.rks.utils.JWTUtil;
+import com.rks.userservice.repository.UserRepo;
+import com.rks.userservice.utils.JWTUtil;
 import io.jsonwebtoken.Claims;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import  jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

@@ -1,9 +1,9 @@
-package com.ecom.rks.service;
+package com.rks.userservice.service;
 
-import com.ecom.rks.dto.requestDto.CustomerRequest;
-import com.ecom.rks.dto.responseDto.CustomerResponse;
-import com.ecom.rks.entity.Customer;
-import com.ecom.rks.repository.CustomerRepo;
+import com.rks.userservice.dto.requestDto.CustomerRequest;
+import com.rks.userservice.dto.responseDto.CustomerResponse;
+import com.rks.userservice.entity.Customer;
+import com.rks.userservice.repository.CustomerRepo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

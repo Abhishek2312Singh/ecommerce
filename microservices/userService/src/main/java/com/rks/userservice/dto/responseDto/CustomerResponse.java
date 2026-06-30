@@ -1,6 +1,6 @@
-package com.ecom.rks.dto.responseDto;
+package com.rks.userservice.dto.responseDto;
 
-import com.ecom.rks.entity.Role;
+import com.rks.userservice.entity.Role;
 
 public class CustomerResponse {
     private Long id;

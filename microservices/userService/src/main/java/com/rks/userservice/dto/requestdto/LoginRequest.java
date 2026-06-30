@@ -1,4 +1,4 @@
-package com.ecom.rks.dto.requestDto;
+package com.rks.userservice.dto.requestDto;
 
 public class LoginRequest {
     private String email;

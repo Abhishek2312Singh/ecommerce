@@ -1,6 +1,6 @@
-package com.ecom.rks.repository;
+package com.rks.userservice.repository;
 
-import com.ecom.rks.entity.User;
+import com.rks.userservice.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,6 @@
-package com.ecom.rks.dto.requestDto;
+package com.rks.userservice.dto.requestDto;
 
-import com.ecom.rks.entity.Role;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import com.rks.userservice.entity.Role;
 
 public class CustomerRequest {
     private Long id;

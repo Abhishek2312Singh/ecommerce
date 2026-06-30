@@ -1,7 +1,6 @@
-package com.ecom.rks.config;
+package com.rks.userservice.config;
 
-import com.ecom.rks.filter.JWTFilter;
-import com.ecom.rks.utils.JWTUtil;
+import com.rks.userservice.filter.JWTFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,7 +26,7 @@ public class SecurityConfig {
                 .csrf(csrf-> csrf.disable())
                 .authorizeHttpRequests(auth->
                         auth
-                                .requestMatchers("/login","/signup").permitAll()
+                                .requestMatchers("/api/user/public/**").permitAll()
                                 .anyRequest().authenticated())
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

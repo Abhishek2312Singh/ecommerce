@@ -1,7 +1,7 @@
-package com.ecom.rks.service;
+package com.rks.userservice.service;
 
-import com.ecom.rks.dto.responseDto.UserResponse;
-import com.ecom.rks.repository.UserRepo;
+import com.rks.userservice.dto.responseDto.UserResponse;
+import com.rks.userservice.repository.UserRepo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
