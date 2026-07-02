@@ -29,7 +29,7 @@ public class InitiateUser {
                 user.setFullName("Abhishek Singh");
                 user.setPassword(config.encoder().encode("admin"));
                 user.setMobile("7701933308");
-                user.setRole(roleRepo.findByRoles(Roles.ROLE_ADMIN).orElseThrow(()-> new RuntimeException("Role Not Found")));
+                user.setRole(roleRepo.findByRole(Roles.ROLE_ADMIN).orElseThrow(()-> new RuntimeException("Role Not Found")));
                 userRepo.save(user);
                 System.out.println("User Created");
             }

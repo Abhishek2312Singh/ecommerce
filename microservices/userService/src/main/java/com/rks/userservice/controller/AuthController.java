@@ -30,6 +30,7 @@ public class AuthController {
                     loginRequest.getEmail(),
                     loginRequest.getPassword()));
             UserResponse user = userService.getUser(loginRequest.getEmail());
+            System.out.println("User : " + user.getEmail());
             return ResponseEntity.ok(user);
         }catch (Exception e){
             System.out.println("Login Error : " + e.getMessage());

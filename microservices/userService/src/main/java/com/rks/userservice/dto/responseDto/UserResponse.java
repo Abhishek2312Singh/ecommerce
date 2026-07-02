@@ -7,7 +7,7 @@ public class UserResponse {
     private String fullName;
     private String email;
     private String mobile;
-    private Role role;
+    private String role;
     private String address;
 
     public Long getId() {
@@ -42,11 +42,11 @@ public class UserResponse {
         this.mobile = mobile;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 
