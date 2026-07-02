@@ -31,6 +31,7 @@ public class AuthService {
             String token = util.generateToken(response.getBody());
             return ResponseEntity.ok(token);
         }catch (Exception e){
+            System.out.println(e.getMessage());
          return ResponseEntity.badRequest().body("User not found");
         }
     }

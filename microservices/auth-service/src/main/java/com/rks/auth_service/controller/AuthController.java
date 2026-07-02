@@ -19,6 +19,7 @@ public class AuthController {
         if(response.getStatusCode().is2xxSuccessful()){
             return ResponseEntity.ok(response.getBody());
         }
+        System.out.println("Error");
         return response;
     }
 }
